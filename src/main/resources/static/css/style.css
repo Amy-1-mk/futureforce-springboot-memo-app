@@ -479,6 +479,8 @@ textarea {
 /* ラジオグループ全体 */
 .priority-group {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 1rem;
 }
 
@@ -487,16 +489,11 @@ textarea {
   display: none;
 }
 
-/* pill の共通スタイル */
-/* pill の共通スタイル */
-.priority-group {
-  display: flex;
-  gap: 1rem;
+.priority-options{
+	display: flex;
+	gap: 1rem;
 }
 
-.priority-radio {
-  display: none; /* ラジオ自体は非表示 */
-}
 
 .priority-pill {
   display: inline-flex;
