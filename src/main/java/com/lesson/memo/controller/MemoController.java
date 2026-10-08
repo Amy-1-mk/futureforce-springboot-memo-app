@@ -38,9 +38,9 @@ public class MemoController {
 
     @GetMapping
     public String list(Model model) {
-        List<Memo> memos = memoRepository.findAll();
+        List<Memo> memos = memoRepository.findAll();       
+        memos.sort(Comparator.comparing(Memo::getPriority));   
         model.addAttribute("memos", memos);
-        Comparator.comparing(Memo::getPriority);
         return "memo-list";
     }
 
@@ -78,8 +78,7 @@ public class MemoController {
 
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model, HttpServletResponse response) {
-        if (model.containsAttribute("memo")) {
-        	model.addAttribute("priority", Priority.values());
+        if (model.containsAttribute("memo")) {      
             return "memo-form";
         }
 
@@ -117,6 +116,7 @@ public class MemoController {
 
         memoToUpdate.setTitle(memo.getTitle());
         memoToUpdate.setContent(memo.getContent());
+        memoToUpdate.setPriority(memo.getPriority());
         memoToUpdate.setUpdatedAt(LocalDateTime.now());
         memoRepository.save(memoToUpdate);
 
