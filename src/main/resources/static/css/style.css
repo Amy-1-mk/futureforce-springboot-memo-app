@@ -528,3 +528,22 @@ textarea {
 .priority-pill.low:has(.priority-radio:checked) {
   background:#198754; color:#fff;
 }
+
+/* 検索機能 */
+
+.search-bar {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.search-form {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-form input[type="text"] {
+  width: 500px;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
