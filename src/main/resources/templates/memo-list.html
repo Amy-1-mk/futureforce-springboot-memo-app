@@ -13,9 +13,16 @@
     <div class="container">
         <div class="header">
             <h1 class="app-title">メモ一覧</h1>
-            <a th:href="@{/memos/new}" class="btn btn-primary">
-                <i class="ri-add-circle-line"></i> 新規メモ
-            </a>
+			<div style="display: flex; align-items: center; gap: 8px;">
+			    <a th:href="@{/memos/new}" class="btn btn-primary">
+			        <i class="ri-add-circle-line"></i> 新規メモ
+			    </a>
+			    <form th:action="@{/admin/logout}" method="post">
+			        <button type="submit" class="btn btn-danger">
+			            <i class="ri-logout-box-r-line"></i> ログアウト
+			        </button>
+			    </form>
+			</div>
         </div>
 		<div class="search-bar">
 			<form th:action="@{/memos/search}" method="get" class="search-form ">
